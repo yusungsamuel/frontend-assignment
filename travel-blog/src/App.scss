@@ -20,7 +20,7 @@ $medium-breakpoint: 960px;
   }
   .nav-bar{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     background-color: $primary-light;
     height: 10vh;
     div{
@@ -29,11 +29,15 @@ $medium-breakpoint: 960px;
         font-style: italic;
       }
     }
+    .header {
+      grid-column:2/3;
+    }
     .nav-list{
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      grid-column: 5/6;
       a{
         margin-right: $gutter;
       }
@@ -45,4 +49,26 @@ $medium-breakpoint: 960px;
       }
     }
   }
+  .main-section{
+    margin: 0 2%;
+    img{
+    max-width: 100%;
+   }
+   .content{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    img{
+      grid-column: 2;
+      border-radius: 50%;
+     }
+     .introduction{
+       grid-column: 3/6;
+       margin: 15px;
+       p{
+         margin:$gutter 0 ;
+       }
+     }
+   }
+  }
+  
 }
