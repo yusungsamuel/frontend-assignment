@@ -22,9 +22,9 @@ $medium-breakpoint: 960px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     background-color: $primary-light;
-    height: 10vh;
+    height: 100px;
     div{
-      margin: 0 auto;
+      margin: auto;
       p{
         font-style: italic;
       }
@@ -32,34 +32,71 @@ $medium-breakpoint: 960px;
     .header {
       grid-column:2/3;
     }
-    .nav-list{
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      grid-column: 5/6;
-      a{
-        margin-right: $gutter;
-      }
-      .button{
-        background-color: $primary;
-        padding: 10px;
-        border-radius: 5px;
-        color: white
-      }
-    }
+    
   }
   .main-section{
     margin: 0 2%;
     img{
-    max-width: 100%;
+    width: 100%;
    }
    .content{
+    
+    img{
+      display:block;
+      width: $profile-image-width;
+      border-radius: 50%;
+      margin: auto;
+    }
+     .introduction{
+       grid-column: 3/6;
+       margin: 15px;
+       p{
+         margin:$gutter 0 ;
+       }
+     }
+   }
+  }
+  .footer{
+    background-color: $primary;
+    color: $primary-light;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    p{
+      grid-column: 2/3;
+    }
+    .links{
+      grid-column: 5/7;
+      a{
+        margin: 0 $gutter;
+      }
+      
+    }
+  }
+}
+
+@media only screen and (min-width: $small-breakpoint) {
+  .nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column: 5/6;
+    a{
+      margin-right: $gutter;
+    }
+    .button{
+      background-color: $primary;
+      padding: 10px;
+      border-radius: 5px;
+      color: white
+    }
+  }
+  
+  .content{
     display: grid;
     grid-template-columns: repeat(6, 1fr); 
     img{
       grid-column: 2;
-      border-radius: 50%;
      }
      .introduction{
        grid-column: 3/6;
@@ -70,5 +107,14 @@ $medium-breakpoint: 960px;
      }
    }
   }
-  
-}
+
+  @media only screen and (max-width: $medium-breakpoint){
+    .introduction{
+      max-height: 40vh;
+      overflow-y: scroll;
+    }
+    .nav-list{
+      display: none;
+
+    }
+  }
