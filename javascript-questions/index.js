@@ -10,6 +10,7 @@ const superHeroes = require('./super-heroes.json');
  * ]
  */
 const getDCHeroes = (heroes) => {
+  heroes = heroes.filter(hero => hero.publisher === "Marvel Comics")
   return heroes;
 }
 
@@ -27,6 +28,9 @@ const getDCHeroes = (heroes) => {
  * ]
  */
 const convertCharactersToArray = (heroes) => {
+  heroes.forEach( hero => {
+    hero.characters = hero.characters.split(", ")
+  })
   return heroes;
 }
 
@@ -44,6 +48,19 @@ const convertCharactersToArray = (heroes) => {
  * }
  */
 const groupByPublisher = (heroes) => {
+  let groupedData = {}
+  heroes.forEach( hero => {
+    let publisher = hero.publisher
+    if(groupedData[publisher]){
+      groupedData[publisher].push(hero);
+    }
+    else {
+      groupedData[publisher] = [];
+      groupedData[publisher].push(hero);
+
+    }
+  })
+  heroes = groupedData;
   return heroes;
 }
 
@@ -61,6 +78,9 @@ const groupByPublisher = (heroes) => {
  * ]
  */
 const getDCHeroesWithMoreThanOneCharacter = (heroes) => {
+  heroes = heroes.filter(hero=>{
+    return hero.publisher === "DC Comics" && hero.characters.length > 1
+  })
   return heroes;
 }
 
