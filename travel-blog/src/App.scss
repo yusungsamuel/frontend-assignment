@@ -16,5 +16,33 @@ $medium-breakpoint: 960px;
   * {
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
+    margin: 0;
+  }
+  .nav-bar{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: $primary-light;
+    height: 10vh;
+    div{
+      margin: 0 auto;
+      p{
+        font-style: italic;
+      }
+    }
+    .nav-list{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      a{
+        margin-right: $gutter;
+      }
+      .button{
+        background-color: $primary;
+        padding: 10px;
+        border-radius: 5px;
+        color: white
+      }
+    }
   }
 }
